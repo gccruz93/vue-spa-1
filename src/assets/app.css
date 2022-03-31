@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+	--primary: #316633;
+	--primary-focus: #1d4d1e;
+	--content: #e8eefd;
+}
+
+body {
+	color: var(--primary);
+}
+
+main {
+	padding: 1rem;
+}
+
+footer {
+	background-color: var(--primary);
+}
+
+hr {
+	border: none;
+	@apply my-7;
+}
+
+textarea {
+	resize: none;
+	outline: none;
+}
+
+form input {
+	margin-bottom: 0.5rem;
+}
+
+form button {
+	background-color: var(--primary);
+	color: white;
+}
+
+form button:hover {
+	background-color: var(--primary-focus);
+}
+
+input {
+	flex-shrink: 1;
+	transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter,
+		-webkit-text-decoration-color, -webkit-backdrop-filter;
+	transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow,
+		transform, filter, backdrop-filter;
+	transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow,
+		transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
+	height: 3rem;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	font-size: 0.875rem;
+	line-height: 1.25rem;
+	line-height: 2;
+	border-width: 1px;
+	border-radius: 0.5rem;
+}
+
+textarea {
+	flex-shrink: 1;
+	transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter,
+		-webkit-text-decoration-color, -webkit-backdrop-filter;
+	transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow,
+		transform, filter, backdrop-filter;
+	transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow,
+		transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	font-size: 0.875rem;
+	line-height: 1.25rem;
+	line-height: 2;
+	border-width: 1px;
+	border-radius: 0.5rem;
+}
+
+a:focus,
+input:focus,
+button:focus,
+select:focus,
+textarea:focus {
+	outline: 2px solid #9cb5e950;
+	outline-offset: 0px;
+	border-color: #9cb5e950;
+}
+
+button {
+	display: block;
+}
+
+@media (max-width: 1024px) {
+	main {
+		padding: 3.5rem 0.5rem 0.5rem 0.5rem;
+	}
+}
+
+.hover-down {
+	@apply duration-100 hover:translate-y-[2px];
+}
