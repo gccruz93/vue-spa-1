@@ -1,10 +1,13 @@
 <script setup>
 import IconFacebook from "@/components/icons/IconFacebook.vue";
 import IconInstagram from "@/components/icons/IconInstagram.vue";
+import WaveBottom from "@/components/WaveBottom.vue";
 </script>
 
 <template>
-	<footer class="pt-8 pb-4 px-2 text-white">
+	<WaveBottom />
+
+	<footer class="pb-4 px-2 text-white bg-primary">
 		<div class="grid grid-flow-row lg:grid-flow-col gap-14 max-w-7xl mx-auto">
 			<div class="flex justify-center items-center">
 				<img alt="Vue logo" src="@/assets/logo.svg" class="max-h-24 h-full w-full pointer-events-none" />

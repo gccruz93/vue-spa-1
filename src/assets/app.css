@@ -12,17 +12,17 @@ body {
 	color: var(--primary);
 }
 
-main {
-	padding: 1rem;
-}
-
-footer {
-	background-color: var(--primary);
-}
-
 hr {
 	border: none;
 	@apply my-7;
+}
+
+a {
+  position: relative;
+}
+
+form {
+  width: 100%;
 }
 
 textarea {
@@ -30,74 +30,104 @@ textarea {
 	outline: none;
 }
 
-form input {
-	margin-bottom: 0.5rem;
-}
-
-form button {
-	background-color: var(--primary);
-	color: white;
-}
-
-form button:hover {
-	background-color: var(--primary-focus);
-}
-
-input {
-	flex-shrink: 1;
-	transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter,
-		-webkit-text-decoration-color, -webkit-backdrop-filter;
-	transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow,
-		transform, filter, backdrop-filter;
-	transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow,
-		transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
-	height: 3rem;
-	padding-left: 1rem;
-	padding-right: 1rem;
-	font-size: 0.875rem;
-	line-height: 1.25rem;
-	line-height: 2;
-	border-width: 1px;
-	border-radius: 0.5rem;
-}
-
-textarea {
-	flex-shrink: 1;
-	transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter,
-		-webkit-text-decoration-color, -webkit-backdrop-filter;
-	transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow,
-		transform, filter, backdrop-filter;
-	transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow,
-		transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
-	padding-left: 1rem;
-	padding-right: 1rem;
-	font-size: 0.875rem;
-	line-height: 1.25rem;
-	line-height: 2;
-	border-width: 1px;
-	border-radius: 0.5rem;
-}
-
-a:focus,
 input:focus,
-button:focus,
 select:focus,
 textarea:focus {
-	outline: 2px solid #9cb5e950;
+	outline: 2px solid hsla(221 83% 53% / 0.2);
 	outline-offset: 0px;
-	border-color: #9cb5e950;
+	border-color: hsla(221 83% 53% / 0.2);
 }
 
-button {
-	display: block;
+main {
+  padding: 1rem;
 }
 
 @media (max-width: 1024px) {
 	main {
+    margin-top: 3.5rem;
 		padding: 3.5rem 0.5rem 0.5rem 0.5rem;
 	}
 }
 
-.hover-down {
-	@apply duration-100 hover:translate-y-[2px];
+@keyframes button-pop {
+  0% { transform: scale(0.95) }
+  40% { transform: scale(1.02) }
+  100% { transform: scale(1) }
+}
+
+.form-control + .form-control {
+  margin-top: 0.5rem;
+}
+
+.btn {
+  display: block;
+  animation: button-pop 0.25s;
+}
+.btn:hover {
+  background-color: var(--primary-focus);
+}
+.btn:active:hover, .btn:active:focus {
+  animation: none;
+  transform: scale(0.95);
+}
+
+.dropdown:focus-within ul {
+	visibility: visible;
+	opacity: 1;
+	transform: translate(0, 0) rotate(0) skew(0) skewY(0) scaleX(1) scaleY(1);
+}
+.dropdown ul {
+	@apply p-2 shadow w-52 rounded-2xl bg-neutral-100;
+	visibility: hidden;
+	position: absolute;
+	left: 0;
+	z-index: 50;
+	opacity: 0;
+	transform-origin: top;
+	transform: translate(0, 0) rotate(0) skew(var(0)) skewY(var(0)) scaleX(0.95) scaleY(0.95);
+	transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter,
+		-webkit-text-decoration-color, -webkit-backdrop-filter;
+	transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow,
+		transform, filter, backdrop-filter;
+	transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow,
+		transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
+	transition-duration: 0.2s;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.dropdown li {
+  @apply hover:bg-neutral-200 cursor-pointer my-1;
+}
+.dropdown a {
+  @apply flex w-full h-full uppercase font-bold lg:text-base py-3 text-sm justify-center;
+}
+.dropdown > *:focus {
+	outline: 2px solid transparent;
+	outline-offset: 2px;
+}
+
+.animate-underline::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  bottom: 0;
+  height: 2px;
+  background-color: var(--primary);
+  transition-duration: 100ms;
+  left: 50%;
+}
+.animate-underline:hover::after {
+  width: 50%;
+}
+.animate-underline::before {
+  content: '';
+  position: absolute;
+  width: 0;
+  bottom: 0;
+  height: 2px;
+  background-color: var(--primary);
+  transition-duration: 100ms;
+  right: 50%;
+}
+.animate-underline:hover::before {
+  width: 50%;
 }
